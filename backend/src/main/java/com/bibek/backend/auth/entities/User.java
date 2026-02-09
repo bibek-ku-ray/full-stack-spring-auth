@@ -1,11 +1,11 @@
-package com.bibek.backend.entities;
+package com.bibek.backend.auth.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.Instant;
 import java.util.HashSet;
 import java.util.Set;
+
 @Getter
 @Setter
 @NoArgsConstructor

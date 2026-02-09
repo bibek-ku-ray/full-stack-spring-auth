@@ -1,4 +1,4 @@
-package com.bibek.backend.entities;
+package com.bibek.backend.auth.entities;
 
 public enum Provider {
     LOCAL,
