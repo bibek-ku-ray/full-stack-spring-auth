@@ -2,10 +2,7 @@ package com.bibek.backend.auth.security;
 
 import com.bibek.backend.auth.entities.Role;
 import com.bibek.backend.auth.entities.User;
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jws;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import lombok.Getter;
 import lombok.Setter;
@@ -85,11 +82,16 @@ public class JwtService {
 
     // parse the token
     public Jws<Claims> parse(String token) {
+        try {
+
         return Jwts
                 .parser()
                 .verifyWith(key)
                 .build()
                 .parseSignedClaims(token);
+        } catch (JwtException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public boolean isAccessToken(String token) {
